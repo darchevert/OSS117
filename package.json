@@ -15,6 +15,10 @@
     "express": "^4.15.3",
     "materialize-css": "^0.98.2",
     "querystring": "^0.2.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-list": "^0.8.6",
+    "react-router-dom": "^4.1.1",
     "url": "^0.11.0"
   }
 }
