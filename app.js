@@ -660,10 +660,10 @@ class App extends React.Component {
           punchlines.filter(searchingFor(term)).map( punch =>
 
           <div className="row" key={punch.id} className="inlineBlock">
-            <ul className="collection NoMargin" >
-             <li className="collection-item avatar grey lighten-5 " >
+            <ul className="NoMarge collection" >
+             <li className="collection-item avatar grey lighten-5 " onClick={this[punch.sound]} >
               <img alt="" src= {punch.photo} className="circle large"/>
-               <a className="btn-floating waves-effect waves-light red right" onClick={this[punch.sound]}><i className="material-icons orange">play_arrow</i></a>
+               <a className="btn-floating waves-effect waves-light red right"><i className="material-icons orange">play_arrow</i></a>
                <span className="title"> {punch.punchline} </span>
                <p> {punch.name} </p>
              </li>
