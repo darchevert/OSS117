@@ -661,9 +661,9 @@ class App extends React.Component {
         {
           punchlines.filter(searchingFor(term)).map(punch => <div className="inlineBlock" key={punch.id}>
             <ul className="collection NoMarge">
-              <li className="collection-item avatar grey lighten-5 ">
+              <li className="collection-item avatar grey lighten-5 " onClick={this[punch.sound]}>
                 <img alt="" src={punch.photo} className="circle large"/>
-                <a className=" col s1 offset-s1 right" onClick={this[punch.sound]}>
+                <a className=" col s1 offset-s1 right" >
                   <i className="small material-icons">add_box</i>
                 </a>
                 <span className="title col s10">
