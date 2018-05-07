@@ -643,35 +643,54 @@ class App extends React.Component {
     const {term, punchlines} = this.state;
     return (
       <div>
-        <div className="navbar-fixed">
-        <nav className="orange">
-          <div className="nav-wrapper">
-            <form>
-              <div className="input-field">
-                <input id="search" type="search" required onChange={this.searchHandler} value={term}/>
-                <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-                <i className="material-icons">close</i>
-              </div>
-            </form>
-          </div>
-        </nav>
-        </div>
-        {
-          punchlines.filter(searchingFor(term)).map( punch =>
-
-          <div className="row" key={punch.id} className="inlineBlock">
-            <ul className="NoMarge collection" >
-             <li className="collection-item avatar grey lighten-5 " onClick={this[punch.sound]} >
-              <img alt="" src= {punch.photo} className="circle large"/>
-               <a className="btn-floating waves-effect waves-light red right"><i className="material-icons orange">play_arrow</i></a>
-               <span className="title"> {punch.punchline} </span>
-               <p> {punch.name} </p>
+       <div className="navbar-fixed">
+         <nav className="orange">
+           <div className="nav-wrapper">
+             <form>
+               <div className="input-field">
+                 <input id="search" type="search" required="required" onChange={this.searchHandler} value={term} placeholder="Cherchez une réplique..."/>
+                 <label className="label-icon" htmlFor="search">
+                   <i className="material-icons">search</i>
+                 </label>
+                 <i className="material-icons">close</i>
+               </div>
+             </form>
+           </div>
+         </nav>
+       </div>
+       {
+         punchlines.filter(searchingFor(term)).map(punch => <div className="inlineBlock" key={punch.id}>
+           <ul className="collection NoMarge">
+             <li className="collection-item avatar grey lighten-5 ">
+               <img alt="" src={punch.photo} className="circle large"/>
+               <a className="btn-floating waves-effect waves-light col s1 offset-s1 right" onClick={this[punch.sound]}>
+                 <i className="material-icons orange">play_arrow</i>
+               </a>
+               <span className="title col s10">
+                 {punch.punchline}
+               </span>
+               <p className="col s10">
+                 {punch.name}
+               </p>
              </li>
-            </ul>
-          </div>
-        )}
-
-    </div>
+           </ul>
+         </div>)
+       }
+       <div className="navbar-fixed-bottom">
+         <nav className="navbar orange">
+           <div className="nav-content">
+             <ul className="tabs tabs-transparent ">
+               <li className="tab col s6">
+                 <a className="active title" href="#">Les répliques</a>
+               </li>
+               <li className="tab col s6">
+                 <a href="#">Mes préférées</a>
+               </li>
+             </ul>
+           </div>
+         </nav>
+       </div>
+     </div>
     );
   }
 }

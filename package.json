@@ -15,7 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch **/*.js --ignore \"./bundle.js\" --ignore node_modules --exec \".\\node_modules\\.bin\\webpack && http-server\""
+    "start": ".\\node_modules\\.bin\\webpack && http-server"
   },
   "author": "",
   "license": "ISC"
