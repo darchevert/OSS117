@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var React = require("react");
 var {Button, Col, Card, CardImg, CardTitle, CardText, CardBody } = require('reactstrap');
 var FontAwesomeIcon = require('@fortawesome/react-fontawesome');
@@ -73,3 +74,18 @@ class Movie extends React.Component {
 }
 
 module.exports = Movie;
+=======
+var React = require('react');
+
+class Fav extends React.Component {
+  render() {
+    return (<div>
+
+
+    </div>
+  );
+  }
+}
+
+module.exports = Fav;
+>>>>>>> af352653e5cfc771cd7e9eedc246b31f7ca882e2
