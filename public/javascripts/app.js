@@ -471,14 +471,62 @@ class App extends React.Component {
     this.unesuze = this.unesuze.bind(this);
     this.voulezmourirbramar = this.voulezmourirbramar.bind(this);
 
+    this.handleClickFavOn = this.handleClickFavOn.bind(this);
+    this.handleClickFavOff = this.handleClickFavOff.bind(this);
+    this.state = { viewOnlyFav : false, fav:[], myfav:[] }
 
     this.state= {
       punchlines: punchlines,
       term: '',
+      viewOnlyFav : false,
+      fav:[],
+      myfav:[]
     }
 
     this.searchHandler = this.searchHandler.bind(this);
   }
+
+  componentDidMount() {
+    var ctx = this;
+    fetch('./fav')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+        ctx.setState(
+          {fav : data}
+        );
+    }).catch(function(error) {
+        console.log('Request failed', error)
+    });
+
+    fetch('./myfav')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+        ctx.setState(
+          {myfav : data}
+        );
+    }).catch(function(error) {
+        console.log('Request failed', error)
+    });
+  }
+
+  handleClickFavOn() {
+    this.setState({
+      viewOnlyFav : true
+    })
+  }
+
+  handleClickFavOff() {
+    this.setState({
+      viewOnlyFav : false
+    })
+  }
+
 
   searchHandler(event){
     this.setState({ term: event.target.value })
@@ -664,7 +712,7 @@ class App extends React.Component {
               <li className="collection-item avatar grey lighten-5 " onClick={this[punch.sound]}>
                 <img alt="" src={punch.photo} className="circle large"/>
                 <a className=" col s1 offset-s1 right" >
-                  <i className="small material-icons">add_box</i>
+                  <i className="small material-icons">star</i>
                 </a>
                 <span className="title col s10">
                   {punch.punchline}
